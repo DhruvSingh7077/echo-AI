@@ -8,5 +8,14 @@ export const OrganizationGuard = ({
 }: {
   children: React.ReactNode;
 }) => {
+  const { organizationId } = useOrganization();
+  if (!organizationId) {
+    return (
+      <div>
+        <p>Create an organization !!</p>
+      </div>
+    );
+  }
+
   return <div>{children}</div>;
 };
